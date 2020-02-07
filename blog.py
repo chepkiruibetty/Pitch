@@ -6,16 +6,14 @@ app.config['SECRET_KEY']='0727325535'
 
 posts=[
     {
-    'author':'Bettyb',
-    'title':'Blog Post 1',
-    'content':'First Post content',  
-    'date_posted': 'Feb 1,2020' 
+    'title':'RIP President Moi',
+    'content':'The country will remember you for the great leadership',  
+    'date_posted': 'Feb ,7,2020' 
     },
     {
-    'author':'Gakii seron',
-    'title':'Blog Post 2',
-    'content':'First Post content',  
-    'date_posted': 'Feb 3,2020' 
+    'title':'Dev.to',
+    'content':'What I Learned about SEO from using JS frameworks',  
+    'date_posted': 'Feb 6,2020' 
     }
 ]
 
