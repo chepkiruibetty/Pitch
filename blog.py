@@ -1,5 +1,5 @@
 from datetime import datetime
-import Flask, render_template, url_for,flash,redirect
+from import Flask, render_template, url_for,flash,redirect
 from flask_sqlalchemy import SQLAlchemy
 from forms import RegistrationForm, LoginForm
 
@@ -8,24 +8,24 @@ app.config['SECRET_KEY']='0727325535'
 app.config['SQLALCHEMY_DATABASE_URL']='sqlite:///site.db'
 db=SQLAlchemy(app)
 
-class User(db.model):
-    id=db.Column(db.integer,primary_key=True)
+class User(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
     username=db.Column(db.String(120),unique=True,nullable=False)
     email=db.Column(db.String(120),unique=True,nullable=False)
     image_file=db.Column(db.String(20),nullable=False,default='default.jpg')
     password=db.Column(db.String(60),nullable=False)
-    posts=db.relationship('Post',backref='author,'lazy=True)
+    posts=db.relationship('Post',backref='author',lazy=True)
     
     def __repr__(self):
         return f"User('{self.username}','{self.email}','{self.username}')"
     
     
-class Post(db.model):
-    id=db.Column(db.Interger,primary_key=True)
-    title==db.Column(db.String(100),nullable=False
-    date_posted=db.Column(db.DateTime,nullable=False,default=datetime.utcnow())
+class Post(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    title=db.Column(db.String(100),nullable=False)
+    date_posted=db.Column(db.DateTime,nullable=False,default=datetime.utcnow)
     content=db.Column(db.Text,nullable=False)
-    user_id=db.Column(db.Inte ger,db.ForeignKey('user.id'),nullable=False)
+    user_id=db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False)
     
     def __repr__(self):
         return f"User('{self.title}','{self.email}','{self.date_posted}')"
