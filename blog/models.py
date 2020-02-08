@@ -1,6 +1,9 @@
 from datetime import datetime
 from blog import db,login_manager
 
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
