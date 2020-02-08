@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for,flash,redirect
+from datetime import datetime
+import Flask, render_template, url_for,flash,redirect
 from flask_sqlalchemy import SQLAlchemy
 from forms import RegistrationForm, LoginForm
 
@@ -19,7 +20,10 @@ class User(db.model):
     
     
 class Post(db.model):
-    id=db.Column
+    id=db.Column(db.Interger,primary_key=True)
+    title==db.Column(db.String(100),nullable=False
+    date_posted=db.Column(db.DateTime,nullable=False,default=datetime.utcnow())
+    content=db.Column(db.Text,nullable=False)
 posts=[
     {
     'title':'RIP President Moi',
