@@ -1,5 +1,5 @@
 from flask import render_template, url_for, flash, redirect
-from blog import app, db,bcrypt  
+from blog import app, db ,bcrypt
 from blog.forms import RegistrationForm, LoginForm
 from blog.models import User, Post
 
@@ -39,8 +39,8 @@ def register():
         user=User(username=form.username.data,email=form.email.data,password=hashed_password)
         db.session.add(user)
         db.session.commit()
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('home'))
+        flash(f'Your Account has been created you can now log in', 'success')
+        return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
 
