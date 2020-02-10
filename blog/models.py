@@ -38,3 +38,12 @@ class Comment(db.Model):
     def __repr__(self):
         return f"User('{self.date_posted}')"
     
+# class Vote(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+#     upvote = db.Column('upvote',db.Integer,default=0)
+# 	downvote = db.Column('downvote',db.Integer,default=0)
+
+#     def __repr__(self):
+#         return f"User('{self.votes}')"
+    
