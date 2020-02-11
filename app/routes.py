@@ -4,7 +4,7 @@ from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
 from app import app, db, bcrypt
 from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm,CommentForm
-from app.models import User, Post,Comment
+from app.models import User, Post,Comment,Upvote,Downvote
 from flask_login import login_user, current_user, logout_user, login_required
 
 @app.route('/')
