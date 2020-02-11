@@ -34,7 +34,7 @@ To get the code..
 1. Cloning the repository:
 
 ```bash
-https://github.com/chepkiruibetty/blog-post
+https://github.com/chepkiruibetty/pitch
 ```
 
 2. Move to the folder and install requirements
