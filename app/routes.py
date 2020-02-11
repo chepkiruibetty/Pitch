@@ -2,17 +2,25 @@ import os
 import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
-from blog import app, db, bcrypt
-from blog.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm,CommentForm
-from blog.models import User, Post,Comment
+from app import app, db, bcrypt
+from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm,CommentForm
+from app.models import User, Post,Comment
 from flask_login import login_user, current_user, logout_user, login_required
 
-
-@app.route("/")
+@app.route('/')
 @app.route("/home")
 def home():
-    posts = Post.query.all()
-    return render_template('home.html', posts=posts)
+    """
+    View root page function that returns the index page and its data
+    """
+    title = 'Posts'
+    general = Post.query.all()
+    product_pitch = Post.query.filter_by(category = 'Product Pitch').all()
+    pickup_lines = Post.query.filter_by(category = 'Pickup Lines').all()
+    interview_pitch = Post.query.filter_by(category = 'Interview Pitch').all()
+    promotion_pitch = Post.query.filter_by(category = 'Promotion Pitch').all()
+
+    return render_template('home.html', title = title, general = general, product_pitch = product_pitch, pickup_lines = pickup_lines, interview_pitch = interview_pitch, promotion_pitch = promotion_pitch)
 
 
 @app.route("/about")
